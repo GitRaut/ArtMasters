@@ -9,20 +9,19 @@ public class PlayerController : MonoBehaviour
     public float jumpPower;//сила прыжка
     public GameObject hook;//объект крючок удочки
     public Text textField;//текстовое поле для подсказок
+    public Camera playerCamera;
+    public Camera hookCamera;
 
     private Rigidbody2D rb;
     private bool isGrounded;
     private bool isPulling;
     private Rigidbody2D hookRB;
-    private Camera mainCamera;
-    private CameraScript cameraScript;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         hookRB = hook.GetComponent<Rigidbody2D>();
-        cameraScript = Camera.main.GetComponent<CameraScript>();
         isPulling = false;
     }
 
@@ -54,9 +53,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             hook.SetActive(false);
-            hook.transform.SetParent(this.transform);
-            cameraScript.target = this.transform;
-            cameraScript.UpdateOffset();
+            ChangeView(hookCamera, playerCamera);
             isPulling = false;
         }
     }
@@ -84,11 +81,10 @@ public class PlayerController : MonoBehaviour
                 {
                     textField.text = null;
                     Vector2 startPos = collision.transform.position;
-                    hook.transform.position = new Vector2(startPos.x, startPos.y - 1);
-                    hook.transform.SetParent(this.transform.parent);
+                    hook.transform.position = new Vector2(startPos.x, startPos.y - 0.5f);
                     hook.SetActive(true);
-                    cameraScript.target = hook.transform;
-                    cameraScript.UpdateOffset();
+
+                    ChangeView(playerCamera, hookCamera);
                     isPulling = true;
                 }
                 break;
@@ -116,5 +112,11 @@ public class PlayerController : MonoBehaviour
                 textField.text = null;
                 break;
         }
+    }
+
+    private void ChangeView(Camera oldCamera, Camera newCamera)
+    {
+        oldCamera.gameObject.SetActive(false);
+        newCamera.gameObject.SetActive(true);
     }
 }
