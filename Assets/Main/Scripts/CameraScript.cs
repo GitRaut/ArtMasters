@@ -6,6 +6,7 @@ public class CameraScript : MonoBehaviour
 {
     public Transform target;
     public Vector3 offset;
+    public float smooth;
 
     private void Start()
     {
@@ -15,11 +16,6 @@ public class CameraScript : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 pos = target.position + offset;
-        transform.position = Vector3.Lerp(transform.position, pos, 8 * Time.fixedDeltaTime);
-    }
-
-    public void UpdateOffset()
-    {
-        offset = transform.position - target.position;
+        transform.position = Vector3.Lerp(transform.position, pos, smooth * Time.fixedDeltaTime);
     }
 }
