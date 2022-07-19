@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;//скорость
     public float jumpPower;//сила прыжка
+    public float hookSpeed;//скорость крючка
+    public float climbSpeed;//скорость забирания на лестницу
     public GameObject hook;//объект крючок удочки
     public Text textField;//текстовое поле для подсказок
     public Camera playerCamera;
@@ -15,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     private bool isPulling;
+    private bool isClimbing;
     private Rigidbody2D hookRB;
 
     // Start is called before the first frame update
@@ -28,12 +31,15 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if(!isPulling)Jump();
+        textField.transform.position 
+            = new Vector2(transform.position.x, textField.transform.position.y);
     }
 
     private void FixedUpdate()
     {
-        if (!isPulling) Move();
-        else if(isPulling) PullMove();
+        if (isPulling) PullMove();
+        else if (isClimbing) LadderMove();
+        else if (!isClimbing && !isPulling) Move();
     }
 
     private void Move()
@@ -46,18 +52,27 @@ public class PlayerController : MonoBehaviour
     {
         if (isPulling)
         {
-            float moveX = Input.GetAxisRaw("Horizontal") * 2;
-            float moveY = Input.GetAxisRaw("Vertical") * 2;
+            float moveX = Input.GetAxisRaw("Horizontal") * hookSpeed;
+            float moveY = Input.GetAxisRaw("Vertical") * hookSpeed;
             hookRB.velocity = new Vector2(moveX, moveY);
         }
         if (Input.GetKey(KeyCode.E))
         {
             hook.SetActive(false);
             ChangeView(hookCamera, playerCamera);
-            isPulling = false;
+            ChangeMove("simple");
         }
     }
 
+    private void LadderMove()
+    {
+        float move = Input.GetAxis("Vertical") * climbSpeed;
+        rb.velocity = new Vector2(rb.velocity.x, move);
+        if(Input.GetAxis("Horizontal") != 0)
+        {
+            ChangeMove("simple");
+        }
+    }
     private void Jump()
     {
         if (Input.GetKey(KeyCode.Space))
@@ -83,9 +98,16 @@ public class PlayerController : MonoBehaviour
                     Vector2 startPos = collision.transform.position;
                     hook.transform.position = new Vector2(startPos.x, startPos.y - 0.5f);
                     hook.SetActive(true);
-
                     ChangeView(playerCamera, hookCamera);
-                    isPulling = true;
+                    ChangeMove("pull");
+                }
+                break;
+            case "Ladder":
+                if(Input.GetAxis("Vertical") != 0)
+                {
+                    float startX = collision.transform.position.x;
+                    transform.position = new Vector2(startX, transform.position.y);
+                    ChangeMove("ladder");
                 }
                 break;
         }
@@ -97,6 +119,12 @@ public class PlayerController : MonoBehaviour
         {
             case "PullPlace":
                 textField.text = "Нажмите 'Е'";
+                break;
+            case "Ladder":
+                textField.text = "'W', 'S'";
+                break;
+            case "MovingPlatform":
+                transform.SetParent(collision.transform.parent);
                 break;
         }
     }
@@ -111,6 +139,10 @@ public class PlayerController : MonoBehaviour
             case "PullPlace":
                 textField.text = null;
                 break;
+            case "Ladder":
+                textField.text = null;
+                ChangeMove("simple");
+                break;
         }
     }
 
@@ -118,5 +150,27 @@ public class PlayerController : MonoBehaviour
     {
         oldCamera.gameObject.SetActive(false);
         newCamera.gameObject.SetActive(true);
+    }
+
+    private void ChangeMove(string name)
+    {
+        switch (name)
+        {
+            case "simple":
+                isPulling = false;
+                isClimbing = false;
+                rb.bodyType = RigidbodyType2D.Dynamic;
+                break;
+            case "pull":
+                isClimbing = false;
+                isPulling = true;
+                rb.bodyType = RigidbodyType2D.Dynamic;
+                break;
+            case "ladder":
+                isClimbing = true;
+                isPulling = false;
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                break;
+        }
     }
 }

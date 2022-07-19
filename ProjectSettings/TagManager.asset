@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - PullPlace
+  - Ladder
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX
