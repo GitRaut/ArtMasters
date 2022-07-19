@@ -31,8 +31,9 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if(!isPulling)Jump();
+
         textField.transform.position 
-            = new Vector2(transform.position.x, textField.transform.position.y);
+            = new Vector2(transform.position.x, transform.position.y) * Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -96,7 +97,8 @@ public class PlayerController : MonoBehaviour
                 {
                     textField.text = null;
                     Vector2 startPos = collision.transform.position;
-                    hook.transform.position = new Vector2(startPos.x, startPos.y - 0.5f);
+                    hook.transform.position 
+                        = new Vector2(startPos.x, startPos.y - 0.5f);
                     hook.SetActive(true);
                     ChangeView(playerCamera, hookCamera);
                     ChangeMove("pull");
@@ -106,7 +108,8 @@ public class PlayerController : MonoBehaviour
                 if(Input.GetAxis("Vertical") != 0)
                 {
                     float startX = collision.transform.position.x;
-                    transform.position = new Vector2(startX, transform.position.y);
+                    transform.position 
+                        = new Vector2(startX, transform.position.y);
                     ChangeMove("ladder");
                 }
                 break;
@@ -124,7 +127,7 @@ public class PlayerController : MonoBehaviour
                 textField.text = "'W', 'S'";
                 break;
             case "MovingPlatform":
-                transform.SetParent(collision.transform.parent);
+                
                 break;
         }
     }
