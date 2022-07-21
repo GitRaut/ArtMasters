@@ -8,6 +8,8 @@ TagManager:
   - PullPlace
   - Ladder
   - MovingPlatform
+  - Swamp
+  - GrabObject
   layers:
   - Default
   - TransparentFX

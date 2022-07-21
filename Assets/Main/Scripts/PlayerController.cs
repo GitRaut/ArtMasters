@@ -5,27 +5,39 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Parametrs:")]
     public float speed;//скорость
     public float jumpPower;//сила прыжка
     public float hookSpeed;//скорость крючка
     public float climbSpeed;//скорость забирания на лестницу
+    public float sinkSpeed;//скорость затягивания в болото
+
+    [Header("Сhild objects:")]
     public GameObject hook;//объект крючок удочки
     public Text textField;//текстовое поле для подсказок
-    public Camera playerCamera;
-    public Camera hookCamera;
 
-    private Rigidbody2D rb;
-    private bool isGrounded;
-    private bool isPulling;
-    private bool isClimbing;
-    private Rigidbody2D hookRB;
+    [Header("Cameras:")]
+    public Camera playerCamera;//камера игрка
+    public Camera hookCamera;//камера крючка
 
-    // Start is called before the first frame update
+    private Rigidbody2D rb;//RigidBody2D игрока
+    private Rigidbody2D hookRB;//RigidBody2D крючка
+
+    private Transform platformParent;//двигающаяся платформа на которой стоит игрок
+
+    private bool isGrounded;//стомт ли игрок на земле
+    private bool isJumping;//прыгает ли игрок сейчас
+
+    private bool isPulling;//управляет ли крючком
+    private bool isClimbing;//на лестнице сейчас или нет
+    private bool isOnPlatform;//на платформе сейчас или нет
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         hookRB = hook.GetComponent<Rigidbody2D>();
         isPulling = false;
+        isOnPlatform = false;
     }
 
     private void Update()
@@ -33,20 +45,41 @@ public class PlayerController : MonoBehaviour
         if(!isPulling)Jump();
 
         textField.transform.position 
-            = new Vector2(transform.position.x, transform.position.y) * Time.deltaTime;
+            = new Vector2(transform.position.x, textField.transform.position.y);
     }
 
     private void FixedUpdate()
     {
         if (isPulling) PullMove();
         else if (isClimbing) LadderMove();
-        else if (!isClimbing && !isPulling) Move();
+        else if (isOnPlatform) PlatformMove();
+        else if (!isClimbing && !isPulling && ! isOnPlatform) Move();
     }
 
     private void Move()
     {
         float move = Input.GetAxisRaw("Horizontal") * speed;
         rb.velocity = new Vector2(move, rb.velocity.y);
+    }
+
+    private void PlatformMove()
+    {
+        if (isOnPlatform)
+        {
+            float move = Input.GetAxisRaw("Horizontal") * speed;
+            if (Input.GetAxis("Horizontal") != 0 || isJumping)
+            {
+                transform.SetParent(null);
+                rb.bodyType = RigidbodyType2D.Dynamic;
+            }
+            else
+            {
+                transform.SetParent(platformParent);
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                rb.velocity = Vector2.zero;
+            }
+            rb.velocity = new Vector2(move, rb.velocity.y);
+        }
     }
 
     private void PullMove()
@@ -80,9 +113,11 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded)
             {
-                rb.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
+                isJumping = true;
+                rb.AddForce (transform.up * jumpPower, ForceMode2D.Impulse);
             }
         }
+        else isJumping = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -113,6 +148,9 @@ public class PlayerController : MonoBehaviour
                     ChangeMove("ladder");
                 }
                 break;
+            case "Swamp":
+                if (speed > 0.2f) speed -= 0.1f;
+                break;
         }
     }
 
@@ -127,7 +165,14 @@ public class PlayerController : MonoBehaviour
                 textField.text = "'W', 'S'";
                 break;
             case "MovingPlatform":
-                
+                isGrounded = true;
+                isOnPlatform = true;
+                ChangeMove("platform");
+                platformParent = collision.transform;
+                break;
+            case "Swamp":
+                rb.gravityScale = sinkSpeed * 0.01f;
+                rb.velocity = new Vector2(rb.velocity.x, 0);
                 break;
         }
     }
@@ -146,6 +191,11 @@ public class PlayerController : MonoBehaviour
                 textField.text = null;
                 ChangeMove("simple");
                 break;
+            case "MovingPlatform":
+                isOnPlatform = false;
+                isGrounded = false;
+                ChangeMove("simple");
+                break;
         }
     }
 
@@ -162,17 +212,25 @@ public class PlayerController : MonoBehaviour
             case "simple":
                 isPulling = false;
                 isClimbing = false;
+                isOnPlatform = false;
                 rb.bodyType = RigidbodyType2D.Dynamic;
                 break;
             case "pull":
                 isClimbing = false;
                 isPulling = true;
+                isOnPlatform = false;
                 rb.bodyType = RigidbodyType2D.Dynamic;
                 break;
             case "ladder":
                 isClimbing = true;
                 isPulling = false;
+                isOnPlatform = false;
                 rb.bodyType = RigidbodyType2D.Kinematic;
+                break;
+            case "platform":
+                isClimbing = false;
+                isPulling = false;
+                isOnPlatform = true;
                 break;
         }
     }
