@@ -12,6 +12,8 @@ public class RoadPlatform : MonoBehaviour
     private bool way;
     private Rigidbody2D rb;
 
+    private bool isActive;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -20,13 +22,17 @@ public class RoadPlatform : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        switch (type){
-            case "h":
-                HorizontalMove();
-                break;
-            case "v":
-                VerticalMove();
-                break;
+        if (isActive)
+        {
+            switch (type)
+            {
+                case "h":
+                    HorizontalMove();
+                    break;
+                case "v":
+                    VerticalMove();
+                    break;
+            }
         }
     }
 
