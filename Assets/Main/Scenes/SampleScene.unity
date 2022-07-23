@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 84028890}
   m_Layer: 0
   m_Name: GrabObject
-  m_TagString: Untagged
+  m_TagString: GrabObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,7 +295,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &84028891
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -448,7 +448,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2
 --- !u!1 &229040323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,7 +1355,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.6
 --- !u!1 &1866600328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,23 +1469,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901780833}
   m_CullTransparentMesh: 1
---- !u!1 &1988678245 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1988678245, guid: dafa6132accd74045a6c193b6663dd11, type: 3}
-  m_PrefabInstance: {fileID: 8574314018214073278}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1988678248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988678245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 836f78d99b50f734093c0a5fabafd8b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2143899658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,7 +1484,7 @@ GameObject:
   - component: {fileID: 2143899663}
   m_Layer: 0
   m_Name: Hook
-  m_TagString: Ladder
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
