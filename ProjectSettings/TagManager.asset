@@ -10,6 +10,7 @@ TagManager:
   - MovingPlatform
   - Swamp
   - GrabObject
+  - PlatformChecker
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,6 @@ public class HookScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(canGrab);
             effector.enabled = true;
         }
         else if (Input.GetMouseButtonUp(0))

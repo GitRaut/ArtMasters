@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float hookSpeed;//скорость крючка
     public float climbSpeed;//скорость забирания на лестницу
     public float sinkSpeed;//скорость затягивания в болото
-
+    
     [Header("Сhild objects:")]
     public GameObject hook;//объект крючок удочки
     public Text textField;//текстовое поле для подсказок
@@ -20,17 +20,23 @@ public class PlayerController : MonoBehaviour
     public Camera playerCamera;//камера игрка
     public Camera hookCamera;//камера крючка
 
-    private Rigidbody2D rb;//RigidBody2D игрока
-    private Rigidbody2D hookRB;//RigidBody2D крючка
+    [Header("Control object's Rigidbodyes2D:")]
+    public Rigidbody2D rb;//RigidBody2D игрока
+    public Rigidbody2D hookRB;//RigidBody2D крючка
 
-    private Transform platformParent;//двигающаяся платформа на которой стоит игрок
+    [Header("On what platform is Player:")]
+    public Transform platformParent;//двигающаяся платформа на которой стоит игрок
 
-    private bool isGrounded;//стомт ли игрок на земле
-    private bool isJumping;//прыгает ли игрок сейчас
+    [Header("Conditions:")]
+    public bool isGrounded;//стомт ли игрок на земле
+    public bool isJumping;//прыгает ли игрок сейчас
 
-    private bool isPulling;//управляет ли крючком
-    private bool isClimbing;//на лестнице сейчас или нет
-    private bool isOnPlatform;//на платформе сейчас или нет
+    public bool isPulling;//управляет ли крючком
+    public bool isClimbing;//на лестнице сейчас или нет
+    public bool isOnPlatform;//на платформе сейчас или нет
+
+    private bool canJump;
+    private float timer;
 
     void Start()
     {
@@ -38,11 +44,20 @@ public class PlayerController : MonoBehaviour
         hookRB = hook.GetComponent<Rigidbody2D>();
         isPulling = false;
         isOnPlatform = false;
+        canJump = true;
+        timer = 0.5f;
     }
 
     private void Update()
     {
-        if(!isPulling)Jump();
+        if (!canJump) timer -= Time.deltaTime;
+        if (timer < 0)
+        {
+            canJump = true;
+            timer = 0.5f;
+        }
+
+        if(!isPulling) Jump();
 
         textField.transform.position 
             = new Vector2(transform.position.x, textField.transform.position.y);
@@ -109,103 +124,28 @@ public class PlayerController : MonoBehaviour
     }
     private void Jump()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && !isJumping)
         {
-            if (isGrounded)
+            if (isGrounded && canJump)
             {
                 isJumping = true;
                 rb.AddForce (transform.up * jumpPower, ForceMode2D.Impulse);
+                canJump = false;
             }
         }
-        else isJumping = false;
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        switch (collision.gameObject.tag)
+        if (isJumping && isGrounded)
         {
-            case "Ground":
-                isGrounded = true;
-                break;
-            case "PullPlace":
-                if (Input.GetKey(KeyCode.E))
-                {
-                    textField.text = null;
-                    Vector2 startPos = collision.transform.position;
-                    hook.transform.position 
-                        = new Vector2(startPos.x, startPos.y - 0.5f);
-                    hook.SetActive(true);
-                    ChangeView(playerCamera, hookCamera);
-                    ChangeMove("pull");
-                }
-                break;
-            case "Ladder":
-                if(Input.GetAxis("Vertical") != 0)
-                {
-                    float startX = collision.transform.position.x;
-                    transform.position 
-                        = new Vector2(startX, transform.position.y);
-                    ChangeMove("ladder");
-                }
-                break;
-            case "Swamp":
-                if (speed > 0.2f) speed -= 0.1f;
-                break;
+            isJumping = false;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        switch (collision.gameObject.tag)
-        {
-            case "PullPlace":
-                textField.text = "Нажмите 'Е'";
-                break;
-            case "Ladder":
-                textField.text = "'W', 'S'";
-                break;
-            case "MovingPlatform":
-                isGrounded = true;
-                isOnPlatform = true;
-                ChangeMove("platform");
-                platformParent = collision.transform;
-                break;
-            case "Swamp":
-                rb.gravityScale = sinkSpeed * 0.01f;
-                rb.velocity = new Vector2(rb.velocity.x, 0);
-                break;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        switch (collision.gameObject.tag)
-        {
-            case "Ground":
-                isGrounded = false;
-                break;
-            case "PullPlace":
-                textField.text = null;
-                break;
-            case "Ladder":
-                textField.text = null;
-                ChangeMove("simple");
-                break;
-            case "MovingPlatform":
-                isOnPlatform = false;
-                isGrounded = false;
-                ChangeMove("simple");
-                break;
-        }
-    }
-
-    private void ChangeView(Camera oldCamera, Camera newCamera)
+    public void ChangeView(Camera oldCamera, Camera newCamera)
     {
         oldCamera.gameObject.SetActive(false);
         newCamera.gameObject.SetActive(true);
     }
 
-    private void ChangeMove(string name)
+    public void ChangeMove(string name)
     {
         switch (name)
         {
