@@ -37,8 +37,9 @@ public class PlayerController : MonoBehaviour
 
     private bool canJump;
     private float timer;
+    public LineRenderer line;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         hookRB = hook.GetComponent<Rigidbody2D>();
@@ -46,6 +47,9 @@ public class PlayerController : MonoBehaviour
         isOnPlatform = false;
         canJump = true;
         timer = 0.5f;
+
+        line.endWidth = 0.07f;
+        line.startWidth = 0.07f;
     }
 
     private void Update()
@@ -68,7 +72,7 @@ public class PlayerController : MonoBehaviour
         if (isPulling) PullMove();
         else if (isClimbing) LadderMove();
         else if (isOnPlatform) PlatformMove();
-        else if (!isClimbing && !isPulling && ! isOnPlatform) Move();
+        else if (!isClimbing && !isPulling && !isOnPlatform) Move();
     }
 
     private void Move()
@@ -104,6 +108,10 @@ public class PlayerController : MonoBehaviour
             float moveX = Input.GetAxisRaw("Horizontal") * hookSpeed;
             float moveY = Input.GetAxisRaw("Vertical") * hookSpeed;
             hookRB.velocity = new Vector2(moveX, moveY);
+            if (Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0)
+            {
+                line.SetPosition(line.positionCount - 1, hook.transform.position);
+            }
         }
         if (Input.GetKey(KeyCode.E))
         {
@@ -150,12 +158,16 @@ public class PlayerController : MonoBehaviour
         switch (name)
         {
             case "simple":
+                line.positionCount = 0;
                 isPulling = false;
                 isClimbing = false;
                 isOnPlatform = false;
                 rb.bodyType = RigidbodyType2D.Dynamic;
                 break;
             case "pull":
+                line.positionCount = 2;
+                line.SetPosition(line.positionCount - 2, transform.position);
+                line.SetPosition(line.positionCount - 1, hook.transform.position);
                 isClimbing = false;
                 isPulling = true;
                 isOnPlatform = false;

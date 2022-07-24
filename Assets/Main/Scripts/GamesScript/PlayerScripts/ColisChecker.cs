@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ColisChecker : MonoBehaviour
 {
     private PlayerController player;
+    private float memberSpeed;
+    private float swampTimer;
+    private Scene scene;
 
     private void Start()
     {
         player = transform.parent.gameObject.GetComponent<PlayerController>();
+        scene = SceneManager.GetActiveScene();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -41,6 +46,11 @@ public class ColisChecker : MonoBehaviour
                 break;
             case "Swamp":
                 if (player.speed > 0.2f) player.speed -= 0.1f;
+                swampTimer -= Time.deltaTime;
+                if(swampTimer <= 0)
+                {
+                    SceneManager.LoadScene(scene.name);
+                }
                 break;
         }
     }
@@ -62,6 +72,8 @@ public class ColisChecker : MonoBehaviour
                 player.platformParent = collision.transform;
                 break;
             case "Swamp":
+                swampTimer = 4f;
+                memberSpeed = player.speed;
                 player.rb.gravityScale = player.sinkSpeed * 0.01f;
                 player.rb.velocity = new Vector2(player.rb.velocity.x, 0);
                 break;
@@ -86,6 +98,11 @@ public class ColisChecker : MonoBehaviour
                 player.isOnPlatform = false;
                 player.isGrounded = false;
                 player.ChangeMove("simple");
+                break;
+            case "Swamp":
+                swampTimer = 4f;
+                player.speed = memberSpeed;
+                player.rb.gravityScale = 1;
                 break;
         }
     }

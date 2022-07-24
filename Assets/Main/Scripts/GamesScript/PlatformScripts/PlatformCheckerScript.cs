@@ -17,13 +17,8 @@ public class PlatformCheckerScript : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "GrabObject":
-                Debug.Log("asdkahwd");
                 grabObject = collision.transform.parent;
-                Rigidbody2D rb = grabObject.GetComponent<Rigidbody2D>();
-                rb.velocity = Vector2.zero;
-                grabObject.GetComponent<CircleCollider2D>().enabled = false;
                 grabObject.gameObject.SetActive(false);
-
                 platform.isActive = true;
                 break;
         }
