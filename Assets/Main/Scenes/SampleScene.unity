@@ -1267,7 +1267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2860515259126348639, guid: a4591136fd9521e4aa563e9582d24c59, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.92
       objectReference: {fileID: 0}
     - target: {fileID: 2860515259126348639, guid: a4591136fd9521e4aa563e9582d24c59, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1602,6 +1602,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrabObject
       objectReference: {fileID: 0}
+    - target: {fileID: 7605778719657209005, guid: 3331173e666c64f468af565a2409348f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3331173e666c64f468af565a2409348f, type: 3}
 --- !u!1001 &8076007076982228361
@@ -1710,7 +1714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8440325935379740902, guid: 55a14e87c18c576488d64e4c37e13bb2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 8440325935379740902, guid: 55a14e87c18c576488d64e4c37e13bb2, type: 3}
       propertyPath: m_LocalRotation.w
