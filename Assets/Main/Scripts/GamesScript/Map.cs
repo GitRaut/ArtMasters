@@ -11,6 +11,7 @@ public class Map : MonoBehaviour
         {
             case "Hook":
                 LevelManager.levels[levelIndex].Active = true;
+                transform.gameObject.SetActive(false);
                 break;
         }
     }

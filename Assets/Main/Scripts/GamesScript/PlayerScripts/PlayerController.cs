@@ -195,6 +195,7 @@ public class PlayerController : MonoBehaviour
                 rb.bodyType = RigidbodyType2D.Dynamic;
                 break;
             case "pull":
+                rb.velocity = Vector2.zero;
                 line.positionCount = 2;
                 line.SetPosition(line.positionCount - 2, transform.position);
                 line.SetPosition(line.positionCount - 1, hook.transform.position);
