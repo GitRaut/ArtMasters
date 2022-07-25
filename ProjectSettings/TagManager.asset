@@ -11,6 +11,7 @@ TagManager:
   - Swamp
   - GrabObject
   - PlatformChecker
+  - Hook
   layers:
   - Default
   - TransparentFX
