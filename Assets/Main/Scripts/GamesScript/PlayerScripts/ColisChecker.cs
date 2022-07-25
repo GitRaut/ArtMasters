@@ -68,9 +68,8 @@ public class ColisChecker : MonoBehaviour
                 break;
             case "MovingPlatform":
                 player.isGrounded = true;
-                player.isOnPlatform = true;
+                player.transform.SetParent(collision.transform);
                 player.ChangeMove("platform");
-                player.platformParent = collision.transform;
                 break;
             case "Swamp":
                 swampTimer = 3f;
@@ -96,7 +95,7 @@ public class ColisChecker : MonoBehaviour
                 player.ChangeMove("simple");
                 break;
             case "MovingPlatform":
-                player.isOnPlatform = false;
+                player.transform.SetParent(null);
                 player.isGrounded = false;
                 player.ChangeMove("simple");
                 break;

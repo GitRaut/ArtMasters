@@ -24,16 +24,12 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;//RigidBody2D игрока
     public Rigidbody2D hookRB;//RigidBody2D крючка
 
-    [Header("On what platform is Player:")]
-    public Transform platformParent;//двигающаяся платформа на которой стоит игрок
-
     [Header("Conditions:")]
     public bool isGrounded;//стомт ли игрок на земле
     public bool isJumping;//прыгает ли игрок сейчас
 
     public bool isPulling;//управляет ли крючком
     public bool isClimbing;//на лестнице сейчас или нет
-    public bool isOnPlatform;//на платформе сейчас или нет
 
     private bool canJump;
     private float timer;
@@ -48,7 +44,6 @@ public class PlayerController : MonoBehaviour
         hookRB = hook.GetComponent<Rigidbody2D>();
         animator = transform.gameObject.GetComponent<Animator>();
         isPulling = false;
-        isOnPlatform = false;
         canJump = true;
         timer = 0.5f;
 
@@ -75,8 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isPulling) PullMove();
         else if (isClimbing) LadderMove();
-        else if (isOnPlatform) PlatformMove();
-        else if (!isClimbing && !isPulling && !isOnPlatform) Move();
+        else if (!isClimbing && !isPulling) Move();
     }
 
     private void Move()
@@ -93,34 +87,6 @@ public class PlayerController : MonoBehaviour
             sprite.flipX = false;
 
         rb.velocity = new Vector2(move, rb.velocity.y);
-    }
-
-    private void PlatformMove()
-    {
-        if (isOnPlatform)
-        {
-            float move = Input.GetAxisRaw("Horizontal") * speed;
-            if (Input.GetAxis("Horizontal") != 0 || isJumping)
-            {
-                animator.SetBool("IsWalking", true);
-                transform.SetParent(null);
-                rb.bodyType = RigidbodyType2D.Dynamic;
-            }
-            else
-            {
-                animator.SetBool("IsWalking", false);
-                transform.SetParent(platformParent);
-                rb.bodyType = RigidbodyType2D.Kinematic;
-                rb.velocity = Vector2.zero;
-            }
-
-            if (Input.GetAxisRaw("Horizontal") < 0)
-                sprite.flipX = true;
-            else if (Input.GetAxisRaw("Horizontal") > 0)
-                sprite.flipX = false;
-
-            rb.velocity = new Vector2(move, rb.velocity.y);
-        }
     }
 
     private void PullMove()
@@ -191,7 +157,6 @@ public class PlayerController : MonoBehaviour
                 line.positionCount = 0;
                 isPulling = false;
                 isClimbing = false;
-                isOnPlatform = false;
                 rb.bodyType = RigidbodyType2D.Dynamic;
                 break;
             case "pull":
@@ -201,19 +166,16 @@ public class PlayerController : MonoBehaviour
                 line.SetPosition(line.positionCount - 1, hook.transform.position);
                 isClimbing = false;
                 isPulling = true;
-                isOnPlatform = false;
                 rb.bodyType = RigidbodyType2D.Dynamic;
                 break;
             case "ladder":
                 isClimbing = true;
                 isPulling = false;
-                isOnPlatform = false;
                 rb.bodyType = RigidbodyType2D.Kinematic;
                 break;
             case "platform":
                 isClimbing = false;
                 isPulling = false;
-                isOnPlatform = true;
                 break;
         }
     }
