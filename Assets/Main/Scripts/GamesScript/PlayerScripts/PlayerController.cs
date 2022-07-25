@@ -132,8 +132,9 @@ public class PlayerController : MonoBehaviour
             hookRB.velocity = new Vector2(moveX, moveY);
             if (Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0)
             {
+                Vector2 vec = new Vector2(hook.transform.position.x, hook.transform.position.y + 0.25f);
                 line.positionCount++;
-                line.SetPosition(line.positionCount - 1, hook.transform.position);
+                line.SetPosition(line.positionCount - 1, vec);
             }
         }
         if (Input.GetKey(KeyCode.E))

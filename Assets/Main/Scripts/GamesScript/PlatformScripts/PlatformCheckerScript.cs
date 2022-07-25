@@ -24,6 +24,7 @@ public class PlatformCheckerScript : MonoBehaviour
                 grabObject.gameObject.SetActive(false);
                 sprite.sprite = activePlatform;
                 platform.isActive = true;
+                transform.gameObject.SetActive(false);
                 break;
         }
     }

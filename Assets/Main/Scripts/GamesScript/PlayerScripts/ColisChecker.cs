@@ -73,7 +73,7 @@ public class ColisChecker : MonoBehaviour
                 player.platformParent = collision.transform;
                 break;
             case "Swamp":
-                swampTimer = 4f;
+                swampTimer = 3f;
                 memberSpeed = player.speed;
                 player.rb.gravityScale = player.sinkSpeed * 0.01f;
                 player.rb.velocity = new Vector2(player.rb.velocity.x, 0);
@@ -101,7 +101,7 @@ public class ColisChecker : MonoBehaviour
                 player.ChangeMove("simple");
                 break;
             case "Swamp":
-                swampTimer = 4f;
+                swampTimer = 3f;
                 player.speed = memberSpeed;
                 player.rb.gravityScale = 1;
                 break;
