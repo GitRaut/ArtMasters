@@ -37,12 +37,16 @@ public class PlayerController : MonoBehaviour
 
     private bool canJump;
     private float timer;
+    public Animator animator;
+    private SpriteRenderer sprite;
     public LineRenderer line;
 
     private void Start()
     {
+        sprite = transform.gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         hookRB = hook.GetComponent<Rigidbody2D>();
+        animator = transform.gameObject.GetComponent<Animator>();
         isPulling = false;
         isOnPlatform = false;
         canJump = true;
@@ -78,6 +82,16 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         float move = Input.GetAxisRaw("Horizontal") * speed;
+
+        if (Input.GetAxisRaw("Horizontal") != 0)
+            animator.SetBool("IsWalking", true);
+        else animator.SetBool("IsWalking", false);
+
+        if (Input.GetAxisRaw("Horizontal") < 0)
+            sprite.flipX = true;
+        else if(Input.GetAxisRaw("Horizontal") > 0)
+            sprite.flipX = false;
+
         rb.velocity = new Vector2(move, rb.velocity.y);
     }
 
@@ -88,15 +102,23 @@ public class PlayerController : MonoBehaviour
             float move = Input.GetAxisRaw("Horizontal") * speed;
             if (Input.GetAxis("Horizontal") != 0 || isJumping)
             {
+                animator.SetBool("IsWalking", true);
                 transform.SetParent(null);
                 rb.bodyType = RigidbodyType2D.Dynamic;
             }
             else
             {
+                animator.SetBool("IsWalking", false);
                 transform.SetParent(platformParent);
                 rb.bodyType = RigidbodyType2D.Kinematic;
                 rb.velocity = Vector2.zero;
             }
+
+            if (Input.GetAxisRaw("Horizontal") < 0)
+                sprite.flipX = true;
+            else if (Input.GetAxisRaw("Horizontal") > 0)
+                sprite.flipX = false;
+
             rb.velocity = new Vector2(move, rb.velocity.y);
         }
     }
@@ -115,6 +137,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.E))
         {
+            animator.SetBool("IsPull", false);
             hook.SetActive(false);
             ChangeView(hookCamera, playerCamera);
             ChangeMove("simple");
@@ -137,9 +160,14 @@ public class PlayerController : MonoBehaviour
             if (isGrounded && canJump)
             {
                 isJumping = true;
-                rb.AddForce (transform.up * jumpPower, ForceMode2D.Impulse);
+                animator.SetBool("IsJumping", true);
+                rb.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
                 canJump = false;
             }
+        }
+        if (canJump)
+        {
+            animator.SetBool("IsJumping", false);
         }
         if (isJumping && isGrounded)
         {

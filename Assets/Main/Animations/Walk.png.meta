@@ -1,0 +1,362 @@
+fileFormatVersion: 2
+guid: 7c11c2a86d225de4bb77196583782fbb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gnom_run20001
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1472
+        width: 361
+        height: 865
+      alignment: 9
+      pivot: {x: 0.47368422, y: 0.4901734}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a39f01b5dc7cd409a6e985ce58738c
+      internalID: 1462932846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_run20002
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 2346
+        width: 360
+        height: 866
+      alignment: 9
+      pivot: {x: 0.46944445, y: 0.4930716}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77dd5f07452cb714b96e121a032a28ae
+      internalID: -247713896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_run20003
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 2346
+        width: 360
+        height: 866
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0.49422634}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176b1058481650645abebd06b94b7986
+      internalID: -1815071525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_run20004
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3212
+        width: 340
+        height: 884
+      alignment: 9
+      pivot: {x: 0.5205882, y: 0.50113124}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee4f793c827ee904bb762bea911992a8
+      internalID: 70192480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_run20005
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 3223
+        width: 357
+        height: 873
+      alignment: 9
+      pivot: {x: 0.49579832, y: 0.5040092}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568b3fe4b8cf4b54bb2ff9701df50e91
+      internalID: -131771500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_run20006
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 2337
+        width: 359
+        height: 875
+      alignment: 9
+      pivot: {x: 0.49860725, y: 0.5017143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e769c8d6c85b73d43a78e75b80bc3ce7
+      internalID: -1687440699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_run20007
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 3223
+        width: 350
+        height: 873
+      alignment: 9
+      pivot: {x: 0.46857142, y: 0.5063001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f9ec1ebb327524ab4393480885fc9a
+      internalID: -1241674134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_run20008
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 3224
+        width: 346
+        height: 872
+      alignment: 9
+      pivot: {x: 0.4768786, y: 0.50688076}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c66468d16ee04240bd52380bd9bed87
+      internalID: 756628043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_run20009
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 1464
+        width: 380
+        height: 873
+      alignment: 9
+      pivot: {x: 0.50526315, y: 0.5051546}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9b533dedd3b9154395f6915e09b04c6
+      internalID: -72968965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_run20010
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2344
+        width: 357
+        height: 868
+      alignment: 9
+      pivot: {x: 0.49859944, y: 0.49654377}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bb8cd63aa235f949a8b96b53e7172e0
+      internalID: -1399568611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_run20011
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 2338
+        width: 357
+        height: 874
+      alignment: 9
+      pivot: {x: 0.50700283, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48b3b38f017ba1e4a98d9770d58d3a83
+      internalID: 1590030635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_run20012
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 3215
+        width: 344
+        height: 881
+      alignment: 9
+      pivot: {x: 0.49418604, y: 0.5017026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80d6e9c2449b60c4c88f5bbb5583092c
+      internalID: -989687643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b283eac80b8534c47914a460396fc3ba
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      gnom_run20003: -1815071525
+      gnom_run20001: 1462932846
+      gnom_run20005: -131771500
+      gnom_run20006: -1687440699
+      gnom_run20008: 756628043
+      gnom_run20009: -72968965
+      gnom_run20007: -1241674134
+      gnom_run20011: 1590030635
+      gnom_run20010: -1399568611
+      gnom_run20004: 70192480
+      gnom_run20002: -247713896
+      gnom_run20012: -989687643
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

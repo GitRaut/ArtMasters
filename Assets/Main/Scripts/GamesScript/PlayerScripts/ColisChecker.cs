@@ -26,6 +26,7 @@ public class ColisChecker : MonoBehaviour
             case "PullPlace":
                 if (Input.GetKey(KeyCode.E))
                 {
+                    player.animator.SetBool("IsPull", true);
                     player.textField.text = null;
                     Vector2 startPos = collision.transform.position;
                     player.hook.transform.position

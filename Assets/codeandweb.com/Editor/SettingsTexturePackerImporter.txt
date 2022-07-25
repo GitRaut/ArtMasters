@@ -1,8 +1,20 @@
 version: 2
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/Main/Animations/Idle.tpsheet
+- Assets/Main/Animations/Jump.tpsheet
+- Assets/Main/Animations/PullAnimation.tpsheet
+- Assets/Main/Animations/Walk.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/Main/Animations/Idle.png
+- Assets/Main/Animations/Jump.png
+- Assets/Main/Animations/PullAnimation.png
+- Assets/Main/Animations/Walk.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
+- 
 enableDebugOutput: 0

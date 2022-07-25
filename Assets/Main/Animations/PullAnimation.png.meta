@@ -1,0 +1,318 @@
+fileFormatVersion: 2
+guid: 53fec30dbe6398445a466c85d5e9e804
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gnom_udochka0001
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 362
+        width: 333
+        height: 855
+      alignment: 9
+      pivot: {x: 0.7432432, y: 0.4877193}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3987d738cfc640c478360091f0e2a4c2
+      internalID: 1584335847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_udochka0002
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1219
+        width: 374
+        height: 828
+      alignment: 9
+      pivot: {x: 0.68048126, y: 0.5024155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 339ea3ba429cd79498474e5a885c3383
+      internalID: -1246759794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_udochka0003
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 417
+        width: 364
+        height: 800
+      alignment: 9
+      pivot: {x: 0.74862635, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfef9d179a03f7041b26217b24744f4c
+      internalID: -191529582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_udochka0004
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 553
+        width: 389
+        height: 773
+      alignment: 9
+      pivot: {x: 0.6876607, y: 0.5355757}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40950e2a90ea9f247bcd89d785d44089
+      internalID: 1074201358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_udochka0005
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 664
+        width: 417
+        height: 747
+      alignment: 9
+      pivot: {x: 0.6606715, y: 0.5555556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dbb306dd8370154dafad289fb846f52
+      internalID: 49979622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_udochka0006
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 1328
+        width: 481
+        height: 719
+      alignment: 9
+      pivot: {x: 0.65800416, y: 0.5757997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f48a3a9028fd4ef47a1fd13d48f9c60f
+      internalID: 121048998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_udochka0007
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 746
+        width: 483
+        height: 693
+      alignment: 9
+      pivot: {x: 0.5973085, y: 0.5988456}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2906844561c0d7a45a04012b1a163ed4
+      internalID: 904595188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_udochka0008
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 81
+        width: 514
+        height: 663
+      alignment: 9
+      pivot: {x: 0.5729572, y: 0.6184012}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65bfb6706a0871647bbf59b4a41138dd
+      internalID: 1957206697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_udochka0009
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 1413
+        width: 556
+        height: 634
+      alignment: 9
+      pivot: {x: 0.54406476, y: 0.6466877}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f55318f060ab84d4081c98a9a92b4a8d
+      internalID: -1227016441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_udochka0010
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 1441
+        width: 584
+        height: 606
+      alignment: 9
+      pivot: {x: 0.5214041, y: 0.6782178}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf24ab4b3c3eb14da0894884cbb4a65
+      internalID: 575983498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 476af4ae7b232024d85b2741832f1d99
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      gnom_udochka0005: 49979622
+      gnom_udochka0001: 1584335847
+      gnom_udochka0002: -1246759794
+      gnom_udochka0004: 1074201358
+      gnom_udochka0007: 904595188
+      gnom_udochka0010: 575983498
+      gnom_udochka0008: 1957206697
+      gnom_udochka0006: 121048998
+      gnom_udochka0003: -191529582
+      gnom_udochka0009: -1227016441
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

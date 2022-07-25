@@ -1,0 +1,252 @@
+fileFormatVersion: 2
+guid: 76597dad8003fd54b98a0df78f97743e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gnom_jump0007
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1114
+        width: 345
+        height: 933
+      alignment: 9
+      pivot: {x: 0.57391304, y: 0.4442658}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 863fd95ecb7d10b4f9f5382373f22245
+      internalID: -1862455288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_jump0008
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 256
+        width: 372
+        height: 856
+      alignment: 9
+      pivot: {x: 0.5080645, y: 0.5204439}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cadf44ea58982f446892a56ad30cff96
+      internalID: 897390394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_jump0009
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 1274
+        width: 381
+        height: 773
+      alignment: 9
+      pivot: {x: 0.4488189, y: 0.60866755}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e819d0b1a5a3254da546121fe152de2
+      internalID: 2136639223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_jump0010
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 1351
+        width: 372
+        height: 696
+      alignment: 9
+      pivot: {x: 0.3844086, y: 0.73491377}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea2c9ca31c41c0a4aae7590d70f21d55
+      internalID: -1854236022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_jump0011
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 532
+        width: 352
+        height: 740
+      alignment: 9
+      pivot: {x: 0.3721591, y: 0.69391894}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c49076ddba534494aa561e984a3d75ca
+      internalID: 2122390153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_jump0012
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 441
+        width: 349
+        height: 783
+      alignment: 9
+      pivot: {x: 0.3982808, y: 0.655811}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4775e0bfa25685940be8a9f25d575d28
+      internalID: 89855707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnom_jump0013
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 1226
+        width: 376
+        height: 821
+      alignment: 9
+      pivot: {x: 0.34840426, y: 0.62058467}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6666bc815e4a59840aac762fcd739467
+      internalID: -1394580481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 39d47f9c8de9eb74697b67745ea40552
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      gnom_jump0013: -1394580481
+      gnom_jump0012: 89855707
+      gnom_jump0007: -1862455288
+      gnom_jump0008: 897390394
+      gnom_jump0009: 2136639223
+      gnom_jump0011: 2122390153
+      gnom_jump0010: -1854236022
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
