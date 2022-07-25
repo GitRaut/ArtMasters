@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PointScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Image pointImage;
     private Button point;
     public int index;
-    public Color activeColor;
-    public Color inActiveColor;
+    public Sprite activeSprite;
+    public Sprite inActiveSprite;
 
     private void Start()
     {
@@ -18,12 +19,12 @@ public class PointScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         pointImage = transform.gameObject.GetComponent<Image>();
         if (LevelManager.levels[index].Active)
         {
-            pointImage.color = activeColor;
+            pointImage.sprite = activeSprite;
             point.interactable = true;
         }
         else
         {
-            pointImage.color = inActiveColor;
+            pointImage.sprite = inActiveSprite;
             point.interactable = false;
         }
     }
@@ -33,6 +34,8 @@ public class PointScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         LevelManager.SelectedLevel = LevelManager.levels[index];
         point.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         Debug.Log(index);
+        Debug.Log(LevelManager.SelectedLevel.level.name);
+        SceneManager.LoadScene(LevelManager.SelectedLevel.Scene.name);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
