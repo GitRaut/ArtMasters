@@ -7,7 +7,7 @@ public class ColisChecker : MonoBehaviour
 {
     private PlayerController player;
     private float memberSpeed;
-    private float swampTimer;
+    public float swampTimer;
     private Scene scene;
 
     private void Start()
@@ -34,7 +34,7 @@ public class ColisChecker : MonoBehaviour
                 break;
             case "Swamp":
                 if (player.speed > 0.2f) player.speed -= 0.1f;
-                swampTimer -= Time.deltaTime;
+                    swampTimer -= Time.deltaTime;
                 if(swampTimer <= 0)
                 {
                     SceneManager.LoadScene(scene.name);
@@ -60,7 +60,6 @@ public class ColisChecker : MonoBehaviour
                 player.ChangeMove("platform");
                 break;
             case "Swamp":
-                swampTimer = 3f;
                 memberSpeed = player.speed;
                 player.rb.gravityScale = player.sinkSpeed * 0.01f;
                 player.rb.velocity = new Vector2(player.rb.velocity.x, 0);

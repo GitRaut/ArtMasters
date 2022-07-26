@@ -7,11 +7,12 @@ public class PlatformCheckerScript : MonoBehaviour
     public Sprite activePlatform;
     private MovingPlatformU platform;
     private Transform grabObject;
-    private SpriteRenderer sprite;
+    public SpriteRenderer sprite;
 
     private void Start()
     {
-        sprite = transform.parent.gameObject.GetComponent<SpriteRenderer>();
+        if(sprite == null)
+            sprite = transform.parent.gameObject.GetComponent<SpriteRenderer>();
         platform = transform.parent.GetComponent<MovingPlatformU>();
     }
 

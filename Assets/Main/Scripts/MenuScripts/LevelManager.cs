@@ -8,7 +8,7 @@ public static class LevelManager
     public static List<Level> levels = new List<Level>()
     {
         { new Level(SceneManager.GetSceneByName("Level_0"), true)},
-        { new Level(SceneManager.GetSceneByName("Level_1"), true)},
+        { new Level(SceneManager.GetSceneByName("A"), true)},
         { new Level(SceneManager.GetSceneByName("Level_2"), false)}
     };
 
