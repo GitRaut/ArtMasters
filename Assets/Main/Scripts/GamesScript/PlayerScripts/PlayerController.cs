@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     private SpriteRenderer sprite;
     public LineRenderer line;
+    public GameObject pullPlace;
+
+    public AudioSource pullDown;
+    public AudioSource fishDown;
 
     private void Start()
     {
@@ -61,6 +65,27 @@ public class PlayerController : MonoBehaviour
         }
 
         if(!isPulling) Jump();
+
+        if(Input.GetKeyUp(KeyCode.E) && pullPlace)
+        {
+            pullDown.Play();
+            if (isPulling)
+            {
+                animator.SetBool("IsPull", false);
+                hook.SetActive(false);
+                ChangeView(hookCamera, playerCamera);
+            }
+            else
+            {
+                animator.SetBool("IsPull", true);
+                textField.text = null;
+                Vector2 startPos = pullPlace.transform.position;
+                hook.transform.position = new Vector2(startPos.x, startPos.y - 0.5f);
+                hook.SetActive(true);
+                ChangeView(playerCamera, hookCamera);
+                ChangeMove("pull");
+            }
+        }
 
         textField.transform.position 
             = new Vector2(transform.position.x, textField.transform.position.y);
@@ -98,6 +123,7 @@ public class PlayerController : MonoBehaviour
             hookRB.velocity = new Vector2(moveX, moveY);
             if (Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0)
             {
+                fishDown.Play();
                 Vector2 vec = new Vector2(hook.transform.position.x, hook.transform.position.y + 0.25f);
                 line.positionCount++;
                 line.SetPosition(line.positionCount - 1, vec);

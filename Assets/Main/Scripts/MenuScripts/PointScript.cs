@@ -35,7 +35,7 @@ public class PointScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         point.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         Debug.Log(index);
         Debug.Log(LevelManager.SelectedLevel.level.name);
-        SceneManager.LoadScene(LevelManager.SelectedLevel.Scene.name);
+        SceneManager.LoadScene(LevelManager.SelectedLevel.level.name);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

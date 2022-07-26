@@ -23,19 +23,6 @@ public class ColisChecker : MonoBehaviour
             case "Ground":
                 player.isGrounded = true;
                 break;
-            case "PullPlace":
-                if (Input.GetKey(KeyCode.E))
-                {
-                    player.animator.SetBool("IsPull", true);
-                    player.textField.text = null;
-                    Vector2 startPos = collision.transform.position;
-                    player.hook.transform.position
-                        = new Vector2(startPos.x, startPos.y - 0.5f);
-                    player.hook.SetActive(true);
-                    player.ChangeView(player.playerCamera, player.hookCamera);
-                    player.ChangeMove("pull");
-                }
-                break;
             case "Ladder":
                 if (Input.GetAxis("Vertical") != 0)
                 {
@@ -62,6 +49,7 @@ public class ColisChecker : MonoBehaviour
         {
             case "PullPlace":
                 player.textField.text = "ֽאזלטעו 'ֵ'";
+                player.pullPlace = collision.gameObject;
                 break;
             case "Ladder":
                 player.textField.text = "'W', 'S'";
@@ -89,6 +77,7 @@ public class ColisChecker : MonoBehaviour
                 break;
             case "PullPlace":
                 player.textField.text = null;
+                player.pullPlace = null;
                 break;
             case "Ladder":
                 player.textField.text = null;

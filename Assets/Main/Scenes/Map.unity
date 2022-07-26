@@ -1090,7 +1090,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4443592578388487956, guid: f46b2110efb8a2f4cbdfe37f4e8f6593, type: 3}
       propertyPath: index
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4443592578388487956, guid: f46b2110efb8a2f4cbdfe37f4e8f6593, type: 3}
       propertyPath: activeSprite

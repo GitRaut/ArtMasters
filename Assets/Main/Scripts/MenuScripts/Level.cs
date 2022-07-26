@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Level
 {
     public Scene level;
-    private bool isActive;
+    public bool isActive;
 
     public Level(Scene scene, bool condition)
     {
