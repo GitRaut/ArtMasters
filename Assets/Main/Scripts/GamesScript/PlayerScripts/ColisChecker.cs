@@ -47,6 +47,10 @@ public class ColisChecker : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
+            case "Ground":
+                if(!(player.isGrounded))
+                    player.jump.PlayScheduled(1f);
+                break;
             case "PullPlace":
                 player.textField.text = "ֽאזלטעו 'ֵ'";
                 player.pullPlace = collision.gameObject;

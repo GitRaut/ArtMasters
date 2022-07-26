@@ -161,6 +161,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 298383328, guid: a4591136fd9521e4aa563e9582d24c59, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2860515259126348635, guid: a4591136fd9521e4aa563e9582d24c59, type: 3}
       propertyPath: m_Name
       value: Hook
@@ -14236,10 +14240,6 @@ PrefabInstance:
     - target: {fileID: 8440325935379740902, guid: 55a14e87c18c576488d64e4c37e13bb2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8440325936017837137, guid: 55a14e87c18c576488d64e4c37e13bb2, type: 3}
-      propertyPath: swampTimer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55a14e87c18c576488d64e4c37e13bb2, type: 3}

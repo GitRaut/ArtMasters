@@ -5,7 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class Level
 {
-    public Scene level;
+    public string name;
+    public bool isActive;
+
+    public Level(string name, bool condition)
+    {
+        this.name = name;
+        isActive = condition;
+    }
+
+    public bool Active
+    {
+        get { return isActive; }
+        set { isActive = value; }
+    }
+
+    public string LevelName
+    {
+        get { return name; }
+        set { name = value; }
+    }
+    /*public Scene level;
     public bool isActive;
 
     public Level(Scene scene, bool condition)
@@ -24,5 +44,5 @@ public class Level
     {
         get { return level; }
         set { level = value; }
-    }
+    }*/
 }

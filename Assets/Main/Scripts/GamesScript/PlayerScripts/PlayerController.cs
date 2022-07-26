@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource pullDown;
     public AudioSource steps;
+    public AudioSource jump;
 
     private void Start()
     {
@@ -114,7 +115,7 @@ public class PlayerController : MonoBehaviour
 
         if (rb.velocity.magnitude != 0)
         {
-            if (!steps.isPlaying && !isJumping)
+            if (!steps.isPlaying && !isJumping && isGrounded && canJump)
             {
                 steps.Play();
             }
@@ -163,6 +164,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && !isJumping)
         {
+            steps.Stop();
             if (isGrounded && canJump)
             {
                 isJumping = true;

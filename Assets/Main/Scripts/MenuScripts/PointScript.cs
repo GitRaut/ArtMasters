@@ -12,6 +12,7 @@ public class PointScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public int index;
     public Sprite activeSprite;
     public Sprite inActiveSprite;
+    public string levelName;
 
     private void Start()
     {
@@ -34,8 +35,8 @@ public class PointScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         LevelManager.SelectedLevel = LevelManager.levels[index];
         point.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         Debug.Log(index);
-        Debug.Log(LevelManager.SelectedLevel.level.name);
-        SceneManager.LoadScene(LevelManager.SelectedLevel.level.name);
+        Debug.Log(LevelManager.SelectedLevel.name);
+        SceneManager.LoadScene(LevelManager.SelectedLevel.name);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
