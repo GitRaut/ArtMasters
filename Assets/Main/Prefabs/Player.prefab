@@ -737,4 +737,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca6d0d6dcb6690648be5e53b74ee0a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swampTimer: 6
+  swampTimer: 4

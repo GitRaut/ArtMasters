@@ -33,11 +33,17 @@ public class ColisChecker : MonoBehaviour
                 }
                 break;
             case "Swamp":
-                if (player.speed > 0.2f) player.speed -= 0.1f;
-                    swampTimer -= Time.deltaTime;
-                if(swampTimer <= 0)
+                if (player.speed > 0.2f)
+                {
+                    player.speed -= 0.1f;
+                }
+                swampTimer -= Time.deltaTime;
+                Debug.Log(swampTimer);
+                if(swampTimer < 0)
                 {
                     SceneManager.LoadScene(scene.name);
+                    player.speed = memberSpeed;
+                    swampTimer = 4f;
                 }
                 break;
         }
@@ -92,7 +98,6 @@ public class ColisChecker : MonoBehaviour
                 player.ChangeMove("simple");
                 break;
             case "Swamp":
-                swampTimer = 3f;
                 player.speed = memberSpeed;
                 player.rb.gravityScale = 1;
                 break;
